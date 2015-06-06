@@ -1,0 +1,100 @@
+CREATE USER 'cas_app'@'%' IDENTIFIED BY 'jemax@52'; 
+
+CREATE USER 'bbs_app'@'%' IDENTIFIED BY 'jemax@52'; 
+
+GRANT SELECT,INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON commons.* TO 'cas_app'@'%'; 
+
+GRANT SELECT,INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON commons.* TO 'bbs_app'@'%';
+
+==============================
+
+
+
+
+
+
+
+INSERT INTO `user` (
+username,
+password,
+email,
+registered_at,
+updated_at
+) VALUES (
+"abc",
+PASSWORD("abc"),
+"abc@hotmail.com",
+NOW(),
+NOW()
+);
+
+
+
+INSERT INTO role 
+(
+role.sys_id,
+role.`name`,
+role.`code`)
+values(
+1,
+'≤‚ ‘',
+'test:test'
+);
+
+
+
+INSERT INTO 
+rel_user2role
+(rel_user2role.user_id,
+rel_user2role.role_id
+)values(
+1,
+1
+);
+
+
+
+INSERT into permission
+(permission.sys_module_id,
+permission.`name`,
+permission.`code`)
+VALUES(
+1,
+"≤‚ ‘",
+"test:test"
+);
+
+
+
+
+
+INSERT INTO rel_role2permission
+(rel_role2permission.role_id,
+rel_role2permission.permission_id)
+VALUES(
+1,
+1
+);
+
+
+
+INSERT INTO uri_resource
+(uri_resource.uri_wildcard)VALUES(
+"/**"
+);
+
+
+
+
+INSERT INTO rel_permission2url_resource(
+rel_permission2url_resource.permission_id,
+rel_permission2url_resource.uri_resource_id
+)VALUES(
+1,1
+);
+
+
+
+
+
+
