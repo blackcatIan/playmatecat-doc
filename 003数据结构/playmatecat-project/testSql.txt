@@ -3,18 +3,19 @@ CREATE USER 'cas_app'@'%' IDENTIFIED BY 'jemax@52';
 CREATE USER 'bbs_app'@'%' IDENTIFIED BY 'jemax@52'; 
 
 GRANT SELECT,INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON commons.* TO 'cas_app'@'%'; 
+GRANT SELECT,INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON sys_bbs.* TO 'cas_app'@'%'; 
 
 GRANT SELECT,INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON commons.* TO 'bbs_app'@'%';
-
+GRANT SELECT,INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON sys_bbs.* TO 'bbs_app'@'%';
 ==============================
 
 
 
 
+/*=========å†™å…¥commons===========*/
 
 
-
-INSERT INTO `user` (
+INSERT INTO commons.`user` (
 username,
 password,
 email,
@@ -28,39 +29,27 @@ NOW(),
 NOW()
 );
 
+/*=========å†™å…¥sys_bbs===========*/
 
-
-INSERT INTO role 
+INSERT INTO sys_bbs.role 
 (
-role.sys_id,
 role.`name`,
 role.`code`)
 values(
-1,
-'²âÊÔ',
+'æµ‹è¯•',
 'test:test'
 );
 
 
 
-INSERT INTO 
-rel_user2role
-(rel_user2role.user_id,
-rel_user2role.role_id
-)values(
-1,
-1
-);
 
 
-
-INSERT into permission
-(permission.sys_module_id,
+INSERT into sys_bbs.permission
+(
 permission.`name`,
 permission.`code`)
 VALUES(
-1,
-"²âÊÔ",
+'æµ‹è¯•',
 "test:test"
 );
 
@@ -68,7 +57,7 @@ VALUES(
 
 
 
-INSERT INTO rel_role2permission
+INSERT INTO sys_bbs.rel_role2permission
 (rel_role2permission.role_id,
 rel_role2permission.permission_id)
 VALUES(
@@ -78,7 +67,7 @@ VALUES(
 
 
 
-INSERT INTO uri_resource
+INSERT INTO sys_bbs.uri_resource
 (uri_resource.uri_wildcard)VALUES(
 "/**"
 );
@@ -86,7 +75,7 @@ INSERT INTO uri_resource
 
 
 
-INSERT INTO rel_permission2url_resource(
+INSERT INTO sys_bbs.rel_permission2url_resource(
 rel_permission2url_resource.permission_id,
 rel_permission2url_resource.uri_resource_id
 )VALUES(
