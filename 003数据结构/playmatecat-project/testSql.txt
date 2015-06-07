@@ -40,7 +40,14 @@ values(
 'test:test'
 );
 
-
+INSERT INTO 
+sys_bbs.rel_user2role
+(rel_user2role.user_id,
+rel_user2role.role_id
+)values(
+1,
+1
+);
 
 
 
