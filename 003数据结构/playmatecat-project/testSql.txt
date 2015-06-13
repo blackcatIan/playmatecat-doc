@@ -82,9 +82,9 @@ INSERT INTO sys_bbs.uri_resource
 
 
 
-INSERT INTO sys_bbs.rel_permission2url_resource(
-rel_permission2url_resource.permission_id,
-rel_permission2url_resource.uri_resource_id
+INSERT INTO sys_bbs.rel_permission2uri_resource(
+rel_permission2uri_resource.permission_id,
+rel_permission2uri_resource.uri_resource_id
 )VALUES(
 1,1
 );
